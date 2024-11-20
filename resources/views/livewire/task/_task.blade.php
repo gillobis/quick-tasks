@@ -36,7 +36,7 @@
         <div x-cloak x-show="showButtons" class="flex flex-row justify-between items-center mt-2" x-transition.opacity>
 
           
-          <div class="badge badge-xs badge-neutral p-2">{{$task->taskList->title}}</div>
+          <a href="{{url('app/'.Str::of($task->taskList->title)->slug)}}" wire:navigate class="badge badge-xs badge-neutral p-2 hover:badge-primary">{{$task->taskList->title}}</a>
 
           <div class="flex flex-row justify-end gap-1">
             <button class="btn btn-sm btn-circle btn-ghost hover:bg-base-content hover:text-white">
