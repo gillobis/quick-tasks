@@ -9,7 +9,7 @@
     <div class="relative min-h-screen  bg-base-100 bg-center sm:flex sm:justify-center sm:items-center bg-dots dark:bg-gray-900 selection:bg-indigo-500 selection:text-white ">
         
         @if (Route::has('login'))
-            <div class="p-6 text-right sm:fixed sm:top-0 sm:right-0">
+            <div class="p-6 text-right sm:fixed sm:top-0 sm:right-0 bg-white w-full ">
                 @auth
                     <a href="{{ route('home') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-indigo-500">Home</a>
                 @else
@@ -22,7 +22,7 @@
             </div>
         @endif
 
-        <div class="py-6 lg:py-8 lg:mt-32 mx-auto w-full ">
+        <div class="py-6 lg:py-8 mt-20 lg:mt-32 mx-auto w-full ">
             <div class="flex justify-center">
                 <x-logo class="w-auto h-40 mx-auto" />
             </div>
@@ -32,12 +32,12 @@
                     <h2 class="font-medium text-xl px-6">Create lists of appointments, tasks or things to do. Don't worry about forgetting them, we'll remember them for you.</h2>
                     
                     <div class="text-center">
-                        <a href="{{ route('register')  }}" class="btn btn-primary max-w-sm">Get Started</a>
+                        <a href="{{ route('register')  }}" class="btn btn-accent btn-lg max-w-sm">Get Started</a>
                     </div>
 
-                    <div class="bg-accent text-white p-10 py-20 w-full  mt-3">
-                        <h2 class="font-medium text-3xl">Simple. Easy. Quick.</h2>
-                        <p class="mt-3 text-xl">Keeping track of the things to do is now easier than ever. Enter your commitments and you will never forget a deadline again.</p>
+                    <div class="bg-red-500 text-white p-10 py-20 w-full  mt-3">
+                        <h2 class="font-medium text-4xl">Simple. Easy. Quick.</h2>
+                        <p class="mt-3 text-2xl">Keeping track of the things to do is now easier than ever. Enter your commitments and you will never forget a deadline again.</p>
                     </div>
 
                     <div class="p-6 mt-3 text-center max-w-[700px] mx-auto">
@@ -47,21 +47,21 @@
                                 <div class="font-bold text-2xl">Write</div>
                                 <div class="font-medium text-lg">Create lists and add to it tasks indicating the priority level and an optional due date.</div>
                             </div>
-                            <div><img src="https://placehold.jp/150x150.png" alt="" class="rounded-lg"></div>
+                            <div><img src="{{ asset('imgs/qt_1.png') }}" alt="" class="rounded-lg h-[150px] w-[150px] shadow-md"></div>
 
                             <div class="text-right">
                                 <div class="font-bold text-4xl">2.</div>
                                 <div class="font-bold text-2xl">Keep track</div>
-                                <div class="font-medium text-lg">Stay informed about upcoming assignments nad don't miss your due tasks</div>
+                                <div class="font-medium text-lg">Stay informed about upcoming assignments and don't miss your due tasks</div>
                             </div>
-                            <div><img src="https://placehold.jp/150x150.png" alt="" class="rounded-lg"></div>
+                            <div><img src="{{ asset('imgs/qt_2.png') }}" alt="" class="rounded-lg h-[150px] w-[150px] shadow-md"></div>
 
                             <div class="text-right">
                                 <div class="font-bold text-4xl">3.</div>
                                 <div class="font-bold text-2xl">Manage</div>
                                 <div class="font-medium text-lg">Move tasks between lists, mark them as done or completely delete them.</div>
                             </div>
-                            <div><img src="https://placehold.jp/150x150.png" alt="" class="rounded-lg"></div>
+                            <div><img src="{{ asset('imgs/qt_3.png') }}" alt="" class="rounded-lg  h-[150px] w-[150px] shadow-md"></div>
                         </div>
                     </div>
 
