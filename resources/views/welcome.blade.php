@@ -78,9 +78,29 @@
                                     </div>
                                     <div>
                                         <div class="mt-6 flex max-w-md gap-x-4">
-                                            <label for="email-address" class="sr-only">Email address</label>
-                                            <input id="email-address" name="email" type="email" autocomplete="email" required class="input" placeholder="Enter your email">
-                                            <button type="submit" class="flex-none btn btn-secondary">Subscribe</button>
+                                            <form action="{{ route('newsletter.subscribe') }}" method="POST">
+                                                @csrf
+                                                @if(session('message'))
+                                                <div role="alert" class="alert alert-success mb-2">
+                                                    <svg
+                                                      xmlns="http://www.w3.org/2000/svg"
+                                                      class="h-6 w-6 shrink-0 stroke-current"
+                                                      fill="none"
+                                                      viewBox="0 0 24 24">
+                                                      <path
+                                                        stroke-linecap="round"
+                                                        stroke-linejoin="round"
+                                                        stroke-width="2"
+                                                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                                    </svg>
+                                                    <span>{{ session($message) }}</span>
+                                                </div>
+                                                @endif
+
+                                                <label for="email-address" class="sr-only">Email address</label>
+                                                <input id="email-address" name="email" type="email" autocomplete="email" required class="input" placeholder="Enter your email">
+                                                <button type="submit" class="flex-none btn btn-secondary">Subscribe</button>
+                                            </form>
                                         </div>
                                     </div>
                                     {{-- <dl class="grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2 lg:pt-2">

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\EmailVerificationController;
 use App\Http\Controllers\Auth\LogoutController;
+use App\Http\Controllers\Newsletter;
 use App\Livewire\Auth\Login;
 use App\Livewire\Auth\Passwords\Confirm;
 use App\Livewire\Auth\Passwords\Email;
@@ -39,6 +40,9 @@ Route::middleware('guest')->group(function () {
         ->name('register');
 
 });
+
+Route::post('newsletter/subscribe', [Newsletter::class, 'subscribe' ])
+    ->name('newsletter.subscribe');
 
 Route::get('password/reset', Email::class)
     ->name('password.request');
