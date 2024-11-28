@@ -19,7 +19,7 @@ return new class extends Migration
             $table->tinyInteger('level')->unsigned();
             $table->date('due_date')->nullable();
             $table->double('score')->unsigned()->default(0);
-            $table->boolean('done')->default(false);
+            $table->timestamp('done_at')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });
