@@ -8,6 +8,7 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\On;
 use Livewire\Component;
+use Livewire\Livewire;
 
 class TasksList extends Component
 {
@@ -27,8 +28,11 @@ class TasksList extends Component
         $taskService = new TaskService;
         $this->tasks = $taskService->getUserTasks($list);
 
-        $this->taskList = Auth::user()->taskLists()->whereSlug($list)->first();
-        if ($this->taskList && Auth::user()->taskLists()->count() > 1) {
+        /** @var App\Models\User $user  */
+        $user = Auth::user();
+
+        $this->taskList = $user->taskLists()->whereSlug($list)->first();
+        if ($this->taskList && $user->taskLists()->count() > 1) {
             $this->showTaskListButtons = true;
         }
         $this->title = $this->taskList ? $this->taskList->title : ucfirst($list);
@@ -49,6 +53,8 @@ class TasksList extends Component
         if ($this->taskList) {
             $this->taskList->update(['title' => $this->title]);
             $this->listName = $this->taskList->slug;
+
+            $this->dispatch('list-updated');
         }
 
     }

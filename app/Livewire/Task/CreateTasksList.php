@@ -15,7 +15,10 @@ class CreateTasksList extends Component
     {
         $this->validate();
 
-        $taskList = Auth::user()->taskLists()->create([
+        /** @var App\Models\User $user  */
+        $user = Auth::user();
+
+        $taskList = $user->taskLists()->create([
             'title' => $this->title,
         ]);
 
