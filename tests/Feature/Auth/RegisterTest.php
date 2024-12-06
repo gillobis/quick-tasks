@@ -30,7 +30,7 @@ class RegisterTest extends TestCase
         $this->be($user);
 
         $this->get(route('register'))
-            ->assertRedirect(route('home'));
+            ->assertRedirect(route('dashboard'));
     }
 
     /** @test */

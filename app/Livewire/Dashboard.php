@@ -21,6 +21,7 @@ class Dashboard extends Component
     #[On('delete-list')]
     public function deleteList($taskListId)
     {
+        
         $taskList = TaskList::find($taskListId);
 
         $taskList->tasks()->forceDelete();
